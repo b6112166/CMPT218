@@ -18,7 +18,9 @@ socket.on('login',function(data){
   socket.user = data.thisUser;
   $("#startPage").hide();
   $("#mainPage").show();
+console.log(data.allUsers);
   updateUserList(data.allUsers);
+
 });
 
 socket.on('userUpdate',function(users){
@@ -26,9 +28,9 @@ socket.on('userUpdate',function(users){
 });
 
 function updateUserList(users){
-  $("ul").empty();
+  $("#userList").empty();
   users.forEach(function(data){
-  
-    $("#ul").append(`<li>${data}</li>`);
+
+    $("#userList").append(`<li>${data.user}</li>`);
   });
 }
